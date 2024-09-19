@@ -101,6 +101,8 @@ input[type=number] {
   button{
     background: transparent;
     border: none;
+
+    cursor: pointer;
   }
 
   .calc_body{
@@ -209,6 +211,7 @@ input[type=number] {
     background: var(--main-color-200);
     border:  transparent;
     color: white;
+    transition: background-color 0.3s ease;
   }
   
   .operation{
@@ -225,3 +228,17 @@ input[type=number] {
   .equalBtn{
     background: var(--secondary-color-800);
   }
+
+  .animate {
+    background: hsl(0, 1%, 48%);
+}
+
+.calc-button span {
+    display: inline-block;
+    transition: transform 0.8s ease;
+}
+
+.animate span {
+    transform: scale(0.2);
+   
+}
