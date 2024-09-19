@@ -18,6 +18,9 @@ function clearInputField(){
 }
 
 
+function deleteLastInput(){
+   typeScreen.value = typeScreen.value.slice(0, -1);
+}
 
 
 buttons.forEach((btn)=>{
@@ -58,4 +61,7 @@ clearBtn.addEventListener('click', ()=>{
 
 
 
+eraseBtn.addEventListener('click', ()=>{
+    deleteLastInput()
+})
 
