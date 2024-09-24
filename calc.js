@@ -11,10 +11,24 @@ const bracketsBtn = document.querySelector('#bracketsBtn');
 let openingbracketCount = 0;
 let closingBracketCount = 0
 
+typeScreen.value = 0
+
 function appendToInputField(newValue){
     typeScreen.value += newValue;
     evaluate()
 }
+
+addEventListener('keypress', (e)=>{
+    let value = e.key;
+    if(value >=0  || value <=9 || value =='*' || value =="/" || value == '+' || value == '-' || value == '%'){
+
+        appendToInputField(value)
+    }
+
+    if(e.key =='Enter'){
+       typeScreen.value = answerScreen.textContent
+    }
+})
 
 function clearInputField(){
     typeScreen.value = ''
@@ -60,13 +74,19 @@ function evaluate(){
     }
     
     if(typeScreen.value.includes('+')){
+       
         let number = typeScreen.value.split('+')
          a = parseFloat(number[0])
          b = parseFloat(number[1])
         
-        
-        answerScreen.textContent = add(a,b)
-      
+         
+         answerScreen.textContent = add(a,b)
+         
+         if(number.length > 2){
+             typeScreen.value = answerScreen.textContent;
+             typeScreen.value += '+'
+            
+         }
     
     }
 
@@ -75,6 +95,8 @@ function evaluate(){
         let a = parseFloat(number[0])
         let b = parseFloat(number[1])
         answerScreen.textContent = subtract(a, b)
+
+    
     }
 
     if(typeScreen.value.includes('*')){
