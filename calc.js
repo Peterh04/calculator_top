@@ -54,7 +54,7 @@ function divisionByZeroErrror(){
 
 function evaluate(){
     let expression = typeScreen.value
-    if (!/^\d+(\.\d+)?([+\-*/÷%]\d+(\.\d+)?)*$/.test(expression)) {
+    if (!/^\d+(\.\d+)?([+\-*/÷%]\d+(\.\d+)?)*$|^\d+(\.\d+)?%$/.test(expression)) {
         answerScreen.textContent = '';
         return;
     }
