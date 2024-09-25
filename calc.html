@@ -14,9 +14,10 @@
     <div class="calc_body">
         <div class="screenoutput">
             <div class="typingArea">
-                <input type="number" max=15  >
+                <input id="typingScreen" type="text" max=15  >
+                
             </div>
-            <div class="answerArea">240</div>
+            <div class="answerArea" id="answerScreen"></div>
         </div>
         <div class="secondaryButtons">
             <div class="secondary-leftBtns">
@@ -25,29 +26,29 @@
                 <button class="trigometry"><img src="/icons/scales-02-svgrepo-com.svg" alt="scales img"></button>
                 
             </div>
-            <button class="clear"><img src="/icons/delete-svgrepo-com.svg" alt="clear img"></button>
+            <button class="erase" id="eraseBtn"><img src="/icons/delete-svgrepo-com.svg" alt="erase img"></button>
         </div>
         <div class="mainButtons">
-            <button class="calc-button operation clearBtn">C</button>
-            <button class="calc-button operation">( )</button>
-            <button class="calc-button operation">%</button>
-            <button class="calc-button operation">&#xf7;</button>
-            <button class="calc-button">7</button>
-            <button class="calc-button">8</button>
-            <button class="calc-button">9</button>
-            <button class="calc-button operation">*</button>
-            <button class="calc-button">4</button>
-            <button class="calc-button">5</button>
-            <button class="calc-button">6</button>
-            <button class="calc-button operation">-</button>
-            <button class="calc-button">1</button>
-            <button class="calc-button">2</button>
-            <button class="calc-button">3</button>
-            <button class="calc-button operation">+</button>
-            <button class="calc-button ">+/-</button>
-            <button class="calc-button">0</button>
-            <button class="calc-button">.</button>
-            <button class="calc-button equalBtn">=</button>
+            <button class="calc-button operation " id="clearBtn" value="C"><span>C</span></button>
+            <button class="calc-button operation"  id="bracketsBtn"><span>( )</span></button>
+            <button class="calc-button operation" value="%"><span>%</span></button>
+            <button class="calc-button operation" value="&#xf7"><span>&#xf7;</span></button>
+            <button class="calc-button" value="7"><span>7</span></button>
+            <button class="calc-button"value="8"><span>8</span></button>
+            <button class="calc-button"value="9"><span>9</span></button>
+            <button class="calc-button operation" value="*"><span>*</span></button>
+            <button class="calc-button" value="4"><span>4</span></button>
+            <button class="calc-button" value="5"><span>5</span></button>
+            <button class="calc-button" value="6"><span>6</span></button>
+            <button class="calc-button operation" value="-"><span>-</span></button>
+            <button class="calc-button" value="1"><span>1</span></button>
+            <button class="calc-button" value="2"><span>2</span></button>
+            <button class="calc-button" value="3"><span>3</span></button>
+            <button class="calc-button operation" value="+" id="plusBtn"><span>+</span></button>
+            <button class="calc-button negative" value=""><span>+/-</span></button>
+            <button class="calc-button" value="0"><span>0</span></button>
+            <button class="calc-button" value="."><span>.</span></button>
+            <button class="calc-button equalBtn" value="=" id="equalBtn"><span>=</span></button>
         </div>
     </div>
 </body>
