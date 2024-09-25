@@ -1,5 +1,3 @@
-//perform automatic calculations
-
 const buttons = document.querySelectorAll('button');
 const typeScreen = document.querySelector('#typingScreen');
 const clearBtn = document.querySelector('#clearBtn');
@@ -11,10 +9,29 @@ const bracketsBtn = document.querySelector('#bracketsBtn');
 let openingbracketCount = 0;
 let closingBracketCount = 0
 
-typeScreen.value = 0
+typeScreen.value = ''
+
+
+let mathOperators = ['+', '-', '*', '÷', '%']
 
 function appendToInputField(newValue){
+    let lastChar = typeScreen.value.slice(-1);
+
+    let validExpression = /\d+[\+\-\*÷]\d+/;
+
+   
+    if (validExpression.test(typeScreen.value) && mathOperators.includes(newValue)) {
+        typeScreen.value = answerScreen.textContent;
+        
+    }
+
+    if(mathOperators.includes(lastChar) && mathOperators.includes(newValue)){
+        return
+    }
+
+    
     typeScreen.value += newValue;
+  
     evaluate()
 }
 
@@ -28,6 +45,10 @@ addEventListener('keypress', (e)=>{
     if(e.key =='Enter'){
        typeScreen.value = answerScreen.textContent
     }
+// solve this
+    // if(e.key == '/'){
+    //     return typeScreen.value += '÷'
+    // }
 })
 
 function clearInputField(){
@@ -66,6 +87,9 @@ function divisionByZeroErrror(){
     
 }
 
+
+
+
 function evaluate(){
     let expression = typeScreen.value
     if (!/^\d+(\.\d+)?([+\-*/÷%]\d+(\.\d+)?)*$|^\d+(\.\d+)?%$/.test(expression)) {
@@ -96,6 +120,12 @@ function evaluate(){
         let b = parseFloat(number[1])
         answerScreen.textContent = subtract(a, b)
 
+        if(number.length > 2){
+            typeScreen.value = answerScreen.textContent;
+            typeScreen.value += '-'
+           
+        }
+
     
     }
 
@@ -105,6 +135,12 @@ function evaluate(){
         let b = parseFloat(number[1])
 
         answerScreen.textContent = multiply(a, b)
+
+        if(number.length > 2){
+            typeScreen.value = answerScreen.textContent;
+            typeScreen.value += '*'
+           
+        }
     }
 
     if(typeScreen.value.includes('÷')){
@@ -123,6 +159,12 @@ function evaluate(){
            return
         }
         answerScreen.textContent = divide(a, b)
+
+        if(number.length > 2){
+            typeScreen.value = answerScreen.textContent;
+            typeScreen.value += '÷'
+           
+        }
 
     }
     if(typeScreen.value.includes('%')){
