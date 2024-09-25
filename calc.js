@@ -5,6 +5,7 @@ const eraseBtn = document.querySelector('#eraseBtn');
 const equalBtn = document.querySelector('#equalBtn');
 const answerScreen = document.querySelector('#answerScreen');
 const bracketsBtn = document.querySelector('#bracketsBtn');
+const negativeBtn = document.querySelector('.negative')
 
 let openingbracketCount = 0;
 let closingBracketCount = 0
@@ -16,6 +17,7 @@ let mathOperators = ['+', '-', '*', '÷', '%']
 
 function appendToInputField(newValue){
     let lastChar = typeScreen.value.slice(-1);
+    let firstChar  = typeScreen.value.slice(0, 1)
 
     let validExpression = /\d+[\+\-\*÷]\d+/;
 
@@ -26,6 +28,10 @@ function appendToInputField(newValue){
     }
 
     if(mathOperators.includes(lastChar) && mathOperators.includes(newValue)){
+        return
+    }
+
+    if(typeScreen.value ==='' && mathOperators.includes(newValue)){
         return
     }
 
@@ -198,6 +204,8 @@ buttons.forEach((btn)=>{
             
        }
 
+      
+
        
     })
 
@@ -242,6 +250,12 @@ bracketsBtn.addEventListener('click', ()=>{
 
     }
 })
+
+// negativeBtn.addEventListener('click', ()=>{
+    
+//     typeScreen.value = `-${typeScreen.value}` 
+  
+// })
 
 
 

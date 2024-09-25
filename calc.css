@@ -91,6 +91,8 @@ input[type=number] {
     font-weight: var(--fw-400);
     font-style: var(--fs-n);
     font-size: x-large;
+
+    background-color: var(--secondary-color-600);
   }
 
   img{
